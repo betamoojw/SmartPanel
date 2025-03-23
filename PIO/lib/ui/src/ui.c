@@ -134,9 +134,18 @@ lv_obj_t * ui_menuMusic1;
 void ui_event_Btn10(lv_event_t * e);
 lv_obj_t * ui_Btn10;
 lv_obj_t * ui_menuSelected10;
-lv_obj_t * ui_menuSecure1;
+lv_obj_t * ui_menuSecure;
+void ui_event_Btn11(lv_event_t * e);
 lv_obj_t * ui_Btn11;
 lv_obj_t * ui_menuSelected11;
+lv_obj_t * ui_menuEnv;
+void ui_event_Btn13(lv_event_t * e);
+lv_obj_t * ui_Btn13;
+lv_obj_t * ui_menuSelected13;
+lv_obj_t * ui_menuEnergy;
+void ui_event_Btn14(lv_event_t * e);
+lv_obj_t * ui_Btn14;
+lv_obj_t * ui_menuSelected14;
 lv_obj_t * ui_menubg1;
 // CUSTOM VARIABLES
 lv_obj_t * uic_Header;
@@ -188,7 +197,11 @@ lv_obj_t * uic_menuMedia;
 lv_obj_t * uic_Btn;
 lv_obj_t * uic_menuMedia;
 lv_obj_t * uic_Btn;
-lv_obj_t * uic_menuMedia;
+lv_obj_t * uic_menuSecure;
+lv_obj_t * uic_Btn;
+lv_obj_t * uic_menuSecure;
+lv_obj_t * uic_Btn;
+lv_obj_t * uic_menuEnergy;
 lv_obj_t * uic_Btn;
 
 
@@ -262,6 +275,8 @@ const lv_img_dsc_t * ui_imgset_1604542579[1] = {&ui_img_1176167512};
 const lv_img_dsc_t * ui_imgset_1104495342[1] = {&ui_img_2032833556};
 const lv_img_dsc_t * ui_imgset_328519917[1] = {&ui_img_1282234856};
 const lv_img_dsc_t * ui_imgset_1075893097[1] = {&ui_img_917433972};
+const lv_img_dsc_t * ui_imgset_1981450097[1] = {&ui_img_1188028765};
+const lv_img_dsc_t * ui_imgset_1379816406[1] = {&ui_img_402352260};
 const lv_img_dsc_t * ui_imgset_1894994391[1] = {&ui_img_2040129323};
 const lv_img_dsc_t * ui_imgset_1826338332[1] = {&ui_img_1220919042};
 const lv_img_dsc_t * ui_imgset_710967466[1] = {&ui_img_686816875};
@@ -273,19 +288,19 @@ const lv_img_dsc_t * ui_imgset_1025241861[1] = {&ui_img_1735427615};
 const lv_img_dsc_t * ui_imgset_575017621[1] = {&ui_img_1742922419};
 const lv_img_dsc_t * ui_imgset_406751859[1] = {&ui_img_222132382};
 const lv_img_dsc_t * ui_imgset_801595910[1] = {&ui_img_414704204};
-const lv_img_dsc_t * ui_imgset_731347651[1] = {&ui_img_2067470297};
-const lv_img_dsc_t * ui_imgset_724146983[1] = {&ui_img_84168725};
-const lv_img_dsc_t * ui_imgset_1771410100[1] = {&ui_img_887305853};
-const lv_img_dsc_t * ui_imgset_535857063[1] = {&ui_img_364238874};
+const lv_img_dsc_t * ui_imgset_2014007949[1] = {&ui_img_540303068};
+const lv_img_dsc_t * ui_imgset_694933266[1] = {&ui_img_1927447659};
 const lv_img_dsc_t * ui_imgset_2017136506[1] = {&ui_img_1787871197};
 const lv_img_dsc_t * ui_imgset_2049001895[1] = {&ui_img_161571896};
 const lv_img_dsc_t * ui_imgset_1040610969[1] = {&ui_img_2056880108};
 const lv_img_dsc_t * ui_imgset_1110970233[1] = {&ui_img_496361014};
-const lv_img_dsc_t * ui_imgset_2039982581[1] = {&ui_img_255321356};
-const lv_img_dsc_t * ui_imgset_1008528466[1] = {&ui_img_890010057};
-const lv_img_dsc_t * ui_imgset_694933266[1] = {&ui_img_1927447659};
-const lv_img_dsc_t * ui_imgset_2014007949[1] = {&ui_img_540303068};
 const lv_img_dsc_t * ui_imgset_1200937475[1] = {&ui_img_1681734448};
+const lv_img_dsc_t * ui_imgset_2039982581[1] = {&ui_img_255321356};
+const lv_img_dsc_t * ui_imgset_731347651[1] = {&ui_img_2067470297};
+const lv_img_dsc_t * ui_imgset_1008528466[1] = {&ui_img_890010057};
+const lv_img_dsc_t * ui_imgset_724146983[1] = {&ui_img_84168725};
+const lv_img_dsc_t * ui_imgset_1771410100[1] = {&ui_img_887305853};
+const lv_img_dsc_t * ui_imgset_535857063[1] = {&ui_img_364238874};
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////
 #if LV_COLOR_DEPTH != 16
@@ -352,7 +367,7 @@ void ui_event_Switch9(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        _ui_slider_set_property(ui_Slider4, _UI_SLIDER_PROPERTY_VALUE_WITH_ANIM, 100);
+        _ui_slider_set_property(ui_Slider9, _UI_SLIDER_PROPERTY_VALUE_WITH_ANIM, 100);
     }
 }
 
@@ -380,9 +395,11 @@ void ui_event_Btn6(lv_event_t * e)
         _ui_flag_modify(ui_menuSelected8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_menuSelected9, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_menuSelected10, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         contentSwitching_Animation(ui_ContentLight, 0);
         _ui_flag_modify(ui_GroupBlank, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected13, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
 
@@ -403,6 +420,8 @@ void ui_event_Btn7(lv_event_t * e)
         _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         contentSwitching_Animation(ui_ContentScene, 0);
         _ui_flag_modify(ui_GroupBlank, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected13, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
 
@@ -423,6 +442,8 @@ void ui_event_Btn8(lv_event_t * e)
         _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         contentSwitching_Animation(ui_groupCurtain, 0);
         _ui_flag_modify(ui_GroupBlank, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected13, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
 
@@ -443,6 +464,8 @@ void ui_event_Btn9(lv_event_t * e)
         _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         contentSwitching_Animation(ui_ContentHVAC, 0);
         _ui_flag_modify(ui_GroupBlank, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected13, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
 
@@ -463,6 +486,75 @@ void ui_event_Btn10(lv_event_t * e)
         _ui_flag_modify(ui_menuSelected10, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
         _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         contentSwitching_Animation(ui_GroupBlank, 0);
+        _ui_flag_modify(ui_menuSelected13, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+    }
+}
+
+void ui_event_Btn11(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_flag_modify(ui_ContentLight, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_GroupBlank, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected9, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected13, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        contentSwitching_Animation(ui_GroupBlank, 0);
+        _ui_flag_modify(ui_menuSelected14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected10, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+    }
+}
+
+void ui_event_Btn13(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_flag_modify(ui_ContentLight, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_GroupBlank, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected9, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        contentSwitching_Animation(ui_GroupBlank, 0);
+        _ui_flag_modify(ui_menuSelected14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected13, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+    }
+}
+
+void ui_event_Btn14(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_flag_modify(ui_ContentLight, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_GroupBlank, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected9, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected10, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        contentSwitching_Animation(ui_GroupBlank, 0);
+        _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected13, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     }
 }
 
@@ -503,12 +595,11 @@ void ui_event_Btn1(lv_event_t * e)
         _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected9, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected10, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         contentSwitching_Animation(ui_ContentLight, 0);
     }
 }
@@ -522,12 +613,12 @@ void ui_event_Btn2(lv_event_t * e)
         _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
         _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected9, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected10, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected12, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         contentSwitching_Animation(ui_ContentScene, 0);
     }
 }
@@ -541,12 +632,12 @@ void ui_event_Btn3(lv_event_t * e)
         _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
         _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected9, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected10, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected12, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         contentSwitching_Animation(ui_groupCurtain, 0);
     }
 }
@@ -560,12 +651,12 @@ void ui_event_Btn4(lv_event_t * e)
         _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected9, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected10, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected12, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         contentSwitching_Animation(ui_ContentHVAC, 0);
     }
 }
@@ -580,12 +671,12 @@ void ui_event_Btn5(lv_event_t * e)
         _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_GroupBlank, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected6, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected9, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected10, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(ui_menuSelected5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected12, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         contentSwitching_Animation(ui_GroupBlank, 0);
     }
 }

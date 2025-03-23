@@ -33,6 +33,8 @@ SET(SOURCES screens/ui_main.c
     images/ui_img_1220919042.c
     images/ui_img_1742922419.c
     images/ui_img_84168725.c
+    images/ui_img_402352260.c
+    images/ui_img_1188028765.c
     images/ui_img_menu_bg_png.c)
 
 add_library(ui ${SOURCES})

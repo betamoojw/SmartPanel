@@ -152,9 +152,18 @@ extern lv_obj_t * ui_menuMusic1;
 void ui_event_Btn10(lv_event_t * e);
 extern lv_obj_t * ui_Btn10;
 extern lv_obj_t * ui_menuSelected10;
-extern lv_obj_t * ui_menuSecure1;
+extern lv_obj_t * ui_menuSecure;
+void ui_event_Btn11(lv_event_t * e);
 extern lv_obj_t * ui_Btn11;
 extern lv_obj_t * ui_menuSelected11;
+extern lv_obj_t * ui_menuEnv;
+void ui_event_Btn13(lv_event_t * e);
+extern lv_obj_t * ui_Btn13;
+extern lv_obj_t * ui_menuSelected13;
+extern lv_obj_t * ui_menuEnergy;
+void ui_event_Btn14(lv_event_t * e);
+extern lv_obj_t * ui_Btn14;
+extern lv_obj_t * ui_menuSelected14;
 extern lv_obj_t * ui_menubg1;
 // CUSTOM VARIABLES
 extern lv_obj_t * uic_Header;
@@ -206,7 +215,11 @@ extern lv_obj_t * uic_menuMedia;
 extern lv_obj_t * uic_Btn;
 extern lv_obj_t * uic_menuMedia;
 extern lv_obj_t * uic_Btn;
-extern lv_obj_t * uic_menuMedia;
+extern lv_obj_t * uic_menuSecure;
+extern lv_obj_t * uic_Btn;
+extern lv_obj_t * uic_menuSecure;
+extern lv_obj_t * uic_Btn;
+extern lv_obj_t * uic_menuEnergy;
 extern lv_obj_t * uic_Btn;
 
 // SCREEN: ui_config
@@ -305,6 +318,8 @@ LV_IMG_DECLARE(ui_img_2032833556);    // assets/icons8-curtain-control-32.png
 LV_IMG_DECLARE(ui_img_1220919042);    // assets/icons8-hvac-control-32.png
 LV_IMG_DECLARE(ui_img_1742922419);    // assets/icons8-music-control-32.png
 LV_IMG_DECLARE(ui_img_84168725);    // assets/icons8-secure-control-32.png
+LV_IMG_DECLARE(ui_img_402352260);    // assets/icons8-environment-info-32.png
+LV_IMG_DECLARE(ui_img_1188028765);    // assets/icons8-energy-monitoring-32.png
 LV_IMG_DECLARE(ui_img_menu_bg_png);    // assets/menu_bg.png
 
 // UI INIT
