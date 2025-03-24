@@ -220,31 +220,22 @@ lv_obj_t * ui_Zones1;
 void ui_event_layoutBtn1(lv_event_t * e);
 lv_obj_t * ui_layoutBtn1;
 lv_obj_t * ui_zoneDropList1;
+lv_obj_t * ui_Container1;
+lv_obj_t * ui_configBrightness;
+lv_obj_t * ui_Image5;
+lv_obj_t * ui_Label1;
+lv_obj_t * ui_Image1;
+void ui_event_configBrightnessSlider(lv_event_t * e);
+lv_obj_t * ui_configBrightnessSlider;
+lv_obj_t * ui_Image4;
+void ui_event_Switch1(lv_event_t * e);
+lv_obj_t * ui_Switch1;
+lv_obj_t * ui_Label3;
+lv_obj_t * ui_configLanguage;
+lv_obj_t * ui_Image10;
+lv_obj_t * ui_Label14;
+lv_obj_t * ui_languageDropdownList;
 lv_obj_t * ui_menubg2;
-lv_obj_t * ui_Nav2;
-lv_obj_t * ui_menuLight2;
-void ui_event_Btn1(lv_event_t * e);
-lv_obj_t * ui_Btn1;
-lv_obj_t * ui_menuSelected1;
-lv_obj_t * ui_menuScene2;
-void ui_event_Btn2(lv_event_t * e);
-lv_obj_t * ui_Btn2;
-lv_obj_t * ui_menuSelected2;
-lv_obj_t * ui_menuCurtain2;
-void ui_event_Btn3(lv_event_t * e);
-lv_obj_t * ui_Btn3;
-lv_obj_t * ui_menuSelected3;
-lv_obj_t * ui_menuHVAC2;
-void ui_event_Btn4(lv_event_t * e);
-lv_obj_t * ui_Btn4;
-lv_obj_t * ui_menuSelected4;
-lv_obj_t * ui_menuMusic2;
-void ui_event_Btn5(lv_event_t * e);
-lv_obj_t * ui_Btn5;
-lv_obj_t * ui_menuSelected5;
-lv_obj_t * ui_menuSecure2;
-lv_obj_t * ui_Btn12;
-lv_obj_t * ui_menuSelected12;
 // CUSTOM VARIABLES
 lv_obj_t * uic_SysInfo;
 lv_obj_t * uic_wifiDisconnect;
@@ -252,19 +243,9 @@ lv_obj_t * uic_notification;
 lv_obj_t * uic_notification;
 lv_obj_t * uic_setting;
 lv_obj_t * uic_zoneDropList;
-lv_obj_t * uic_Nav1;
-lv_obj_t * uic_menuLight;
-lv_obj_t * uic_Btn;
-lv_obj_t * uic_menuScene;
-lv_obj_t * uic_Btn;
-lv_obj_t * uic_menuCurtain;
-lv_obj_t * uic_Btn;
-lv_obj_t * uic_menuMedia;
-lv_obj_t * uic_Btn;
-lv_obj_t * uic_menuMedia;
-lv_obj_t * uic_Btn;
-lv_obj_t * uic_menuMedia;
-lv_obj_t * uic_Btn;
+lv_obj_t * uic_configBrightness;
+lv_obj_t * uic_configBrightnessSlider;
+lv_obj_t * uic_configLanguage;
 
 // EVENTS
 lv_obj_t * ui____initial_actions0;
@@ -301,6 +282,10 @@ const lv_img_dsc_t * ui_imgset_1008528466[1] = {&ui_img_890010057};
 const lv_img_dsc_t * ui_imgset_724146983[1] = {&ui_img_84168725};
 const lv_img_dsc_t * ui_imgset_1771410100[1] = {&ui_img_887305853};
 const lv_img_dsc_t * ui_imgset_535857063[1] = {&ui_img_364238874};
+const lv_img_dsc_t * ui_imgset_1986574229[1] = {&ui_img_1658605586};
+const lv_img_dsc_t * ui_imgset_1196421701[1] = {&ui_img_1310322208};
+const lv_img_dsc_t * ui_imgset_619018471[1] = {&ui_img_1423884986};
+const lv_img_dsc_t * ui_imgset_1766742700[1] = {&ui_img_789797763};
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////
 #if LV_COLOR_DEPTH != 16
@@ -527,7 +512,7 @@ void ui_event_Btn13(lv_event_t * e)
         _ui_flag_modify(ui_menuSelected7, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_menuSelected8, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(ui_menuSelected9, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(ui_menuSelected13, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
         _ui_flag_modify(ui_menuSelected11, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
         contentSwitching_Animation(ui_GroupBlank, 0);
         _ui_flag_modify(ui_menuSelected14, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
@@ -586,98 +571,21 @@ void ui_event_layoutBtn1(lv_event_t * e)
     }
 }
 
-void ui_event_Btn1(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_RELEASED) {
-        _ui_flag_modify(ui_ContentLight, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        contentSwitching_Animation(ui_ContentLight, 0);
-    }
-}
-
-void ui_event_Btn2(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_RELEASED) {
-        _ui_flag_modify(ui_ContentLight, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected12, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        contentSwitching_Animation(ui_ContentScene, 0);
-    }
-}
-
-void ui_event_Btn3(lv_event_t * e)
+void ui_event_configBrightnessSlider(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        _ui_flag_modify(ui_ContentLight, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected12, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        contentSwitching_Animation(ui_groupCurtain, 0);
+        config_set_backlight(e);
     }
 }
 
-void ui_event_Btn4(lv_event_t * e)
+void ui_event_Switch1(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        _ui_flag_modify(ui_ContentLight, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected12, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        contentSwitching_Animation(ui_ContentHVAC, 0);
-    }
-}
-
-void ui_event_Btn5(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_CLICKED) {
-        _ui_flag_modify(ui_ContentLight, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_ContentScene, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_groupCurtain, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_ContentHVAC, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_GroupBlank, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected1, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected2, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected4, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        _ui_flag_modify(ui_menuSelected5, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(ui_menuSelected12, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-        contentSwitching_Animation(ui_GroupBlank, 0);
+        _ui_slider_set_property(ui_Slider4, _UI_SLIDER_PROPERTY_VALUE_WITH_ANIM, 100);
     }
 }
 

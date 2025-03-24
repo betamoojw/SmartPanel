@@ -237,31 +237,22 @@ extern lv_obj_t * ui_Zones1;
 void ui_event_layoutBtn1(lv_event_t * e);
 extern lv_obj_t * ui_layoutBtn1;
 extern lv_obj_t * ui_zoneDropList1;
+extern lv_obj_t * ui_Container1;
+extern lv_obj_t * ui_configBrightness;
+extern lv_obj_t * ui_Image5;
+extern lv_obj_t * ui_Label1;
+extern lv_obj_t * ui_Image1;
+void ui_event_configBrightnessSlider(lv_event_t * e);
+extern lv_obj_t * ui_configBrightnessSlider;
+extern lv_obj_t * ui_Image4;
+void ui_event_Switch1(lv_event_t * e);
+extern lv_obj_t * ui_Switch1;
+extern lv_obj_t * ui_Label3;
+extern lv_obj_t * ui_configLanguage;
+extern lv_obj_t * ui_Image10;
+extern lv_obj_t * ui_Label14;
+extern lv_obj_t * ui_languageDropdownList;
 extern lv_obj_t * ui_menubg2;
-extern lv_obj_t * ui_Nav2;
-extern lv_obj_t * ui_menuLight2;
-void ui_event_Btn1(lv_event_t * e);
-extern lv_obj_t * ui_Btn1;
-extern lv_obj_t * ui_menuSelected1;
-extern lv_obj_t * ui_menuScene2;
-void ui_event_Btn2(lv_event_t * e);
-extern lv_obj_t * ui_Btn2;
-extern lv_obj_t * ui_menuSelected2;
-extern lv_obj_t * ui_menuCurtain2;
-void ui_event_Btn3(lv_event_t * e);
-extern lv_obj_t * ui_Btn3;
-extern lv_obj_t * ui_menuSelected3;
-extern lv_obj_t * ui_menuHVAC2;
-void ui_event_Btn4(lv_event_t * e);
-extern lv_obj_t * ui_Btn4;
-extern lv_obj_t * ui_menuSelected4;
-extern lv_obj_t * ui_menuMusic2;
-void ui_event_Btn5(lv_event_t * e);
-extern lv_obj_t * ui_Btn5;
-extern lv_obj_t * ui_menuSelected5;
-extern lv_obj_t * ui_menuSecure2;
-extern lv_obj_t * ui_Btn12;
-extern lv_obj_t * ui_menuSelected12;
 // CUSTOM VARIABLES
 extern lv_obj_t * uic_SysInfo;
 extern lv_obj_t * uic_wifiDisconnect;
@@ -269,19 +260,9 @@ extern lv_obj_t * uic_notification;
 extern lv_obj_t * uic_notification;
 extern lv_obj_t * uic_setting;
 extern lv_obj_t * uic_zoneDropList;
-extern lv_obj_t * uic_Nav1;
-extern lv_obj_t * uic_menuLight;
-extern lv_obj_t * uic_Btn;
-extern lv_obj_t * uic_menuScene;
-extern lv_obj_t * uic_Btn;
-extern lv_obj_t * uic_menuCurtain;
-extern lv_obj_t * uic_Btn;
-extern lv_obj_t * uic_menuMedia;
-extern lv_obj_t * uic_Btn;
-extern lv_obj_t * uic_menuMedia;
-extern lv_obj_t * uic_Btn;
-extern lv_obj_t * uic_menuMedia;
-extern lv_obj_t * uic_Btn;
+extern lv_obj_t * uic_configBrightness;
+extern lv_obj_t * uic_configBrightnessSlider;
+extern lv_obj_t * uic_configLanguage;
 
 // EVENTS
 
@@ -321,6 +302,10 @@ LV_IMG_DECLARE(ui_img_84168725);    // assets/icons8-secure-control-32.png
 LV_IMG_DECLARE(ui_img_402352260);    // assets/icons8-environment-info-32.png
 LV_IMG_DECLARE(ui_img_1188028765);    // assets/icons8-energy-monitoring-32.png
 LV_IMG_DECLARE(ui_img_menu_bg_png);    // assets/menu_bg.png
+LV_IMG_DECLARE(ui_img_1423884986);    // assets/icons8-brightness-24.png
+LV_IMG_DECLARE(ui_img_1310322208);    // assets/icons8-lighter-24.png
+LV_IMG_DECLARE(ui_img_1658605586);    // assets/icons8-brighter-24.png
+LV_IMG_DECLARE(ui_img_789797763);    // assets/icons8-multi-language-24.png
 
 // UI INIT
 void ui_init(void);

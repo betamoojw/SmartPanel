@@ -444,7 +444,7 @@ void ui_main_screen_init(void)
     lv_obj_set_x(ui_lightDimming4, 0);
     lv_obj_set_y(ui_lightDimming4, lv_pct(67));
     lv_obj_set_align(ui_lightDimming4, LV_ALIGN_CENTER);
-    lv_obj_add_flag(ui_lightDimming4, LV_OBJ_FLAG_HIDDEN | LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_add_flag(ui_lightDimming4, LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
     lv_obj_clear_flag(ui_lightDimming4, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE);      /// Flags
     lv_obj_set_style_radius(ui_lightDimming4, 4, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_color(ui_lightDimming4, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
