@@ -120,6 +120,24 @@ LVGL
 - Real-time sensor feedback
 - Modbus / KNX integration if supported
 
+*More*
+- 🔥 **Central heating**: flame, CH setpoint, flow/return temperature, modulation level, water pressure
+- 🧊 **Cooling**: cooling active (`cooling`), cooling enabled (`cooling_enable`), cooling control signal (`CoolingControl` %), cooling configuration flag — automatically visible for cooling-capable boilers with zero manual configuration
+- ☀️ **Solar thermal**: solar collector temperature (`Tsolarcollector`), solar storage temperature (`Tsolarstorage`), solar storage mode and slave status, solar slave fault indicator — no YAML needed
+- 💧 **Domestic hot water (DHW)**: DHW temperature, setpoint, flow rate, DHW 2 temperature, pump/burner starts and run hours
+- 🌡️ **Room / thermostat**: room temperature, room setpoint, CH2 setpoint, remote override
+- 💨 **Ventilation / heat recovery (VH)**: ventilation enabled, relative ventilation position, ASF fault codes, VH diagnostic codes, VH protocol versions and TSP entries (IDs 70–91)
+- 🌬️ **Secondary circuit (CH2)**: CH2 setpoint, CH2 flow temperature, CH2 enable
+
+
+### 📊 Environment
+
+![Screenshot of env monitoring](assets/env_monitoring.png)
+
+- relative humidity
+- outside temperature
+- others
+
 
 ### ⚡ Energy Monitoring
 
@@ -230,6 +248,9 @@ pio run --target upload
 - Cloud dashboard
 - AI-based energy optimization
 
+
+### ⚠️ Note
+to-do
 
 ## 📜 License
 - Firmware: MIT / Apache 2.0
